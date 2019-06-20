@@ -1,0 +1,50 @@
+package com.example.myapplication.ui.tabs;
+
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+
+/**
+ * A FragmentPagerAdapter that returns a fragment corresponding to
+ * one of the sections/tabs/pages.
+ */
+public class SectionsPagerAdapter extends FragmentPagerAdapter {
+
+    public SectionsPagerAdapter(FragmentManager fm) {
+        super(fm);
+    }
+
+    @Override
+    public Fragment getItem(int position) {
+        // getItem is called to instantiate the fragment for the given  page and then it returns a PlaceholderFragment
+        switch (position) {
+            case 0:
+                return new TabTakenLijst();
+            case 1:
+                return new TabDeelnemers();
+            case 2:
+                return new TabVerrekening();
+            default:
+                return null;
+        }
+    }
+
+    @Override
+    public int getCount() {
+        // Show 3 total pages.
+        return 3;
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        switch (position) {
+            case 0:
+                return "Takenlijst";
+            case 1:
+                return "Wachtrij";
+            case 2:
+                return "Klaar";
+        }
+        return null;
+    }
+}
